@@ -83,7 +83,7 @@ export const TodoList = () => {
       </div>
 
       <div className="todo-items-container">
-        {todos.length === 0 ? (
+        {!todos || todos.length === 0 ? (
           <div className="empty-state">
             {searchTerm ? 'No todos found matching your search.' : 'No todos yet. Add one to get started!'}
           </div>

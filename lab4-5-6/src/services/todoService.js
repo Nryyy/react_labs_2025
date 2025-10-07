@@ -1,9 +1,11 @@
 import apiClient from '../api/axiosConfig';
 
 export const todoService = {
-  getTodo: async () => {
-    const response = await apiClient.get('/todos');
-    return response.data.todos;
+  getTodo: async (limit = 30, skip = 0) => {
+    const response = await apiClient.get('/todos', {
+      params: { limit, skip }
+    });
+    return response.data;
   },
   
   updateTodo: async (id, updateData) => {
